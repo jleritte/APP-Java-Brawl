@@ -1,5 +1,4 @@
-public class BrawlCard
-{
+public class BrawlCard {
 	private final short	BASE=0,
 					 	BLUEHIT=1, BLUEHIT2=2, BLUEBLOCK=3,
 						GREENHIT=4, GREENHIT2=5, GREENBLOCK=6,
@@ -11,21 +10,16 @@ public class BrawlCard
 
 	private short type;
 
-	public BrawlCard()
-	{	}
-	public BrawlCard(short theType,short play)
-	{
+	public BrawlCard() {	}
+	public BrawlCard(short theType,short play) {
 		type=theType;
 		player=play;
 	}
-	public short getType()
-	{
+	public short getType() {
 		return type;
 	}
-	public String toString()
-	{
-		switch(type)
-		{
+	public String toString() {
+		switch(type) {
 			case BLUEHIT:		return "Blue Hit";
 			case BLUEHIT2:		return "Blue Hit-2";
 			case BLUEBLOCK:		return "Blue Block";
@@ -42,8 +36,7 @@ public class BrawlCard
 			default:			return "??";
 		}
 	}
-	public short getPlayer()
-	{
+	public short getPlayer() {
 		return player;
 	}
 }

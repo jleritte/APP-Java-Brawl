@@ -1,7 +1,6 @@
 import javax.swing.*;
 
-public class BrawlIcons
-{
+public class BrawlIcons {
 	private final String	bennett="CharacterIcons/Bennett",
 								chris="CharacterIcons/Chris",
 								darwin="CharacterIcons/Darwin",
@@ -11,10 +10,8 @@ public class BrawlIcons
 
 	private ImageIcon[] icons=new ImageIcon[26];
 
-	public BrawlIcons()
-	{	}
-	public BrawlIcons(String character)
-	{
+	public BrawlIcons() {	}
+	public BrawlIcons(String character) {
 		if(character.equals("Bennett"))
 			buildIcons(bennett);
 		else if(character.equals("Chris"))
@@ -28,8 +25,7 @@ public class BrawlIcons
 		else if(character.equals("Pearl"))
 			buildIcons(pearl);
 	}
-	private void buildIcons(String who)
-	{
+	private void buildIcons(String who) {
 		icons[0]=new ImageIcon(who+"/Back.jpg");
 		icons[1]=new ImageIcon(who+"/Base.jpg");
 		icons[2]=new ImageIcon(who+"/HitBlueU.jpg");
@@ -57,16 +53,13 @@ public class BrawlIcons
 		icons[24]=new ImageIcon(who+"/BaseTop.jpg");
 		icons[25]=new ImageIcon(who+"/BaseBottom.jpg");
 	}
-	public ImageIcon getIcon(String card,int i)
-	{
+	public ImageIcon getIcon(String card,int i) {
 		short x=-1;
 		x=findCard(card,i);
 		return icons[x];
 	}
-	private short findCard(String name,int x)
-	{
-		if(x==1)
-		{
+	private short findCard(String name,int x) {
+		if(x==1) {
 			if(name.equals("Blue Hit"))
 				return 2;
 			else if(name.equals("Green Hit"))
@@ -94,8 +87,7 @@ public class BrawlIcons
 			else if(name.equals("Freeze"))
 				return 23;
 		}
-		else if(x==2)
-		{
+		else if(x==2) {
 			if(name.equals("Blue Hit"))
 				return 3;
 			else if(name.equals("Green Hit"))
@@ -117,8 +109,7 @@ public class BrawlIcons
 			else if(name.equals("Press"))
 				return 21;
 		}
-		else
-		{
+		else {
 			if(name.equals("Back"))
 				return 0;
 			else if(name.equals("Base"))
