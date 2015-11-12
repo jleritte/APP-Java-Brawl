@@ -12,9 +12,9 @@ public class Brawl /*extends GameSearch*/ {
   public static void main(String[] args) {
     String str;
     short x;
-    Object[] playerNum = {"1","2"};
+    /*Object[] playerNum = {"1","2"};
 
-    String num = (String)JOptionPane.showInputDialog(null,"Number of Players","PlayMode",JOptionPane.PLAIN_MESSAGE,null,playerNum,playerNum[0]);
+    String num = (String)JOptionPane.showInputDialog(null,"Number of Players","PlayMode",JOptionPane.PLAIN_MESSAGE,null,playerNum,playerNum[0]);*/
     for(short i = 0; i < deck.length; i++) {
       deck[i] = new BrawlDeck(getChar(),count);
       discard[i] = new BrawlDiscard(deck[i].getDeckSize());

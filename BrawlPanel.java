@@ -18,9 +18,11 @@ public class BrawlPanel  {
   private JPanel[] players = new JPanel[2];
   private final Color table = new Color(0,0,0);
   private final Color font = new Color(255,250,255);
+  private ImageIcon icon = new ImageIcon("CharacterIcons/icon.jpg");
 
   public BrawlPanel() {
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setIconImage(icon.getImage());
     addComponentsToPane();
     frame.setPreferredSize(new Dimension(930,778));
     frame.setLocation(360,50);
