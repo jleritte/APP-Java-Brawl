@@ -12,12 +12,14 @@ public class BrawlDeck {
 
   public BrawlDeck() {    }
   public BrawlDeck(String character,short x) {
-    if(character.equals("Bennett")) {   buildDeck(bennett,x);System.out.println("Bennett");}
-    else if(character.equals("Chris")) {    buildDeck(chris,x);System.out.println("Chris");}
-    else if(character.equals("Darwin")) {   buildDeck(darwin,x);System.out.println("Darwin");}
-    else if(character.equals("Hale")) {  buildDeck(hale,x);System.out.println("Hale");}
-    else if(character.equals("Morgan")) {   buildDeck(morgan,x);System.out.println("Morgan");}
-    else if(character.equals("Pearl")) {    buildDeck(pearl,x);System.out.println("Pearl");}
+    switch(character) {
+      case "Bennett":  buildDeck(bennett,x);System.out.println("Bennett");break;
+      case "Chris":    buildDeck(chris,x);System.out.println("Chris");break;
+      case "Darwin":   buildDeck(darwin,x);System.out.println("Darwin");break;
+      case "Hale":     buildDeck(hale,x);System.out.println("Hale");break;
+      case "Morgan":   buildDeck(morgan,x);System.out.println("Morgan");break;
+      case "Pearl":    buildDeck(pearl,x);System.out.println("Pearl");break;
+    }
   }
   private void buildDeck(short[] deckBuilt,short player) {
     deck=new BrawlCard[DECKSIZE];
