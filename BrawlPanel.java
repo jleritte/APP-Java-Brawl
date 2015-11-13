@@ -24,7 +24,7 @@ public class BrawlPanel  {
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setIconImage(icon.getImage());
     addComponentsToPane();
-    frame.setPreferredSize(new Dimension(930,778));
+    frame.setPreferredSize(new Dimension(930,780));
     frame.setLocation(360,50);
     frame.pack();
     frame.setVisible(true);
