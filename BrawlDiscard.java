@@ -1,29 +1,21 @@
 public class BrawlDiscard {
   private BrawlCard[] discard;
-  private short cardLocation=0;
+  private short cardLocation=-1;
 
   public BrawlDiscard() { }
   public BrawlDiscard(short deckSize) {
     discard=new BrawlCard[deckSize];
   }
   public void setCard(BrawlCard card) {
-    discard[cardLocation]=card;
-    cardLocation++;
+    discard[++cardLocation]=card;
   }
   public BrawlCard getCard() {
-    if(cardLocation<=0)
-      return discard[0];
+    if(cardLocation>=0)
+      return discard[cardLocation];
     else
-      return discard[cardLocation-1];
-  }
-  public BrawlCard getCard(int x) {
-    if(cardLocation<=0)
-      return null;
-    else
-      return discard[cardLocation-1];
+      return new BrawlCard((short)-1,(short)0);
   }
   public BrawlCard playCard() {
-    cardLocation--;
-    return discard[cardLocation];
+    return discard[cardLocation--];
   }
 }

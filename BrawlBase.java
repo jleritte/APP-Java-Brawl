@@ -17,19 +17,13 @@ public class BrawlBase {
     freeze=false;
   }
   public boolean addSide(BrawlCard card,int side) {
-    if(card.getType()==12) {freeze=true;return true;}
+    boolean rtrn=false;
+    if(card.getType()==12) {freeze=true;rtrn=true;}
     if(counts[side]==0) {
       switch(card.getType()) {
         case 1:
         case 4:
-        case 7: {
-          sides[side][counts[side]]=card;
-          counts[side]++;
-          return true;
-        }
-        default: {
-          return false;
-        }
+        case 7: rtrn=placeCard(card, side);
       }
     }
     else if(counts[side]>0) {
@@ -37,59 +31,60 @@ public class BrawlBase {
         case 1:
         case 2:
         case 3: {
-          if(sides[side][counts[side]-1].getType()==1||sides[side][counts[side]-1].getType()==2) {  sides[side][counts[side]]=card;counts[side]++;return true;}
-          else if(sides[side][counts[side]-1].getType()==11) {  if(card.getType()==1) { if(sides[side][counts[side]-2].getType()==3) {  sides[side][counts[side]]=card;counts[side]++;return true;}
-              else
-                return false;
-            }
-            else
-              return false;
+          if(sides[side][counts[side]-1].getType()==1||sides[side][counts[side]-1].getType()==2) {
+            rtrn=placeCard(card,side);
           }
-          else
-            return false;
+          else if(sides[side][counts[side]-1].getType()==11) {
+            if(card.getType()==1) {
+              if(sides[side][counts[side]-2].getType()==3) {
+                rtrn=placeCard(card,side);
+              }
+            }
+          }
         }
         case 4:
         case 5:
         case 6: {
-          if(sides[side][counts[side]-1].getType()==4||sides[side][counts[side]-1].getType()==5) {  sides[side][counts[side]]=card;counts[side]++;return true;}
-          else if(sides[side][counts[side]-1].getType()==11) {  if(card.getType()==4) { if(sides[side][counts[side]-2].getType()==6) {  sides[side][counts[side]]=card;counts[side]++;return true;}
-              else
-                return false;
-            }
-            else
-              return false;
+          if(sides[side][counts[side]-1].getType()==4||sides[side][counts[side]-1].getType()==5) {
+            rtrn=placeCard(card,side);
           }
-          else
-            return false;
+          else if(sides[side][counts[side]-1].getType()==11) {
+            if(card.getType()==4) {
+              if(sides[side][counts[side]-2].getType()==6) {
+                rtrn=placeCard(card,side);
+              }
+            }
+          }
         }
         case 7:
         case 8:
         case 9: {
-          if(sides[side][counts[side]-1].getType()==7||sides[side][counts[side]-1].getType()==8) {  sides[side][counts[side]]=card;counts[side]++;return true;}
-          else if(sides[side][counts[side]-1].getType()==11) {  if(card.getType()==7) { if(sides[side][counts[side]-2].getType()==9) {  sides[side][counts[side]]=card;counts[side]++;return true;}
-              else
-                return false;
-            }
-            else
-              return false;
+          if(sides[side][counts[side]-1].getType()==7||sides[side][counts[side]-1].getType()==8) {
+            rtrn=placeCard(card,side);
           }
-          else
-            return false;
+          else if(sides[side][counts[side]-1].getType()==11) {
+            if(card.getType()==7) {
+              if(sides[side][counts[side]-2].getType()==9) {
+                rtrn=placeCard(card,side);
+              }
+            }
+          }
         }
-        case 11: {  switch(sides[side][counts[side]-1].getType()) {
+        case 11: {
+          switch(sides[side][counts[side]-1].getType()) {
             case 3:
             case 6:
-            case 9: { sides[side][counts[side]]=card;counts[side]++;return true;}
-            default:
-              return false;
+            case 9: rtrn=placeCard(card,side);
           }
         }
-        default:
-          return false;
       }
     }
-    else
-      return false;
+    return rtrn;
+  }
+  private boolean placeCard(BrawlCard card, int side) {
+    sides[side][counts[side]]=card;
+    counts[side]++;
+    return true;
   }
   public BrawlCard getSide(int side) {
     if(counts[side]<=0)
@@ -108,7 +103,6 @@ public class BrawlBase {
           case 2:
           case 5:
           case 8: counts[side]+=2;break;
-          default:  break;
         }
       }
     }

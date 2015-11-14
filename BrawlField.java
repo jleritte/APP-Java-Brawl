@@ -13,15 +13,12 @@ public class BrawlField {
     inPlay.add(new BrawlBase(p2,'R'));
   }
   public boolean addNewBase(int player,char a) {
-
-    if(inPlay.size()==3)
-      return false;
-    else {
+    boolean rtrn=false;
+    if(inPlay.size()<3) {
       if(inPlay.size()>1) {
         short x=findLocation(a);
         inPlay.get(x).setLocation('M');
         inPlay.add(new BrawlBase(player,a));
-        return true;
       }
       else if(inPlay.size()==1) {
         inPlay.add(new BrawlBase(player,a));
@@ -31,97 +28,59 @@ public class BrawlField {
         }
         short x=findLocation('M');
         inPlay.get(x).setLocation(a);
-        return true;
       }
+      rtrn=true;
     }
-    return false;
+    return rtrn;
   }
   public boolean clearBase(char a) {
-    if(a=='M'||inPlay.size()==1)
-      return false;
-    else {
+    boolean rtrn=false;
+    if(a!='M'&&inPlay.size()!=1) {
       short x=findLocation(a);
       boolean freeze=checkFreeze(x);
-      if(freeze!=true) {
+      if(!freeze) {
         inPlay.remove(x);
         if(inPlay.size()>1) {
           x=findLocation('M');
           inPlay.get(x).setLocation(a);
-          return true;
         }
         else if(inPlay.size()==1) {
           switch(a) {
             case 'L': {a='R';break;}
             case 'R': {a='L';break;}
-          }                       
+          }
           x=findLocation(a);
           inPlay.get(x).setLocation('M');
-          return true;
         }
+        rtrn=true;
       }
-      else
-        return false;
     }
-    return false;
+    return rtrn;
   }
   public boolean playToBase(char a,int y,BrawlCard card) {
     boolean freeze=false,played=false;
     if(inPlay.size()==1) {
       short x=0;
       freeze=checkFreeze(x);
-      if(freeze!=true) {
-        if(y==1) {
-          played=inPlay.get(x).addSide(card,y-1);
-          return played;
-        }
-        else if(y==2) {
-          played=inPlay.get(x).addSide(card,y-1);
-          return played;
-        }
-        else
-          return played;
+      if(!freeze) {
+        played=inPlay.get(x).addSide(card,y-1);
       }
-      else
-        return played;
     }
     else if(inPlay.size()==2&&a!='M') {
       short x=findLocation(a);
       freeze=checkFreeze(x);
-      if(freeze!=true) {
-        if(y==1) {
-          played=inPlay.get(x).addSide(card,y-1);
-          return played;
-        }
-        else if(y==2) {
-          played=inPlay.get(x).addSide(card,y-1);
-          return played;
-        }
-        else
-          return played;
+      if(!freeze) {
+        played=inPlay.get(x).addSide(card,y-1);
       }
-      else
-        return played;
     }
     else if(inPlay.size()==3) {
       short x=findLocation(a);
       freeze=checkFreeze(x);
-      if(freeze!=true) {
-        if(y==1) {
-          played=inPlay.get(x).addSide(card,y-1);
-          return played;
-        }
-        else if(y==2) {
-          played=inPlay.get(x).addSide(card,y-1);
-          return played;
-        }
-        else
-          return played;
+      if(!freeze) {
+        played=inPlay.get(x).addSide(card,y-1);
       }
-      else
-        return played;
     }
-    else
-      return played;
+    return played;
   }
   private short findLocation(char a) {
     short i=-1;
@@ -134,38 +93,27 @@ public class BrawlField {
     return 3;
   }
   private boolean checkFreeze(short x) {
-    if(inPlay.get(x).getFreeze()==true)
-      return true;
-    else
-      return false;
+    return inPlay.get(x).getFreeze();
   }
   public boolean checkDone() {
     boolean[] freeze={false,false,false};
+    boolean done=false;
     for(short i=0;i<inPlay.size();i++) {
-      if(inPlay.get(i).getFreeze()==true) {
-        freeze[i]=true;
-      }
+      freeze[i]=inPlay.get(i).getFreeze();
     }
     if(inPlay.size()==1) {
-      if(freeze[0]==true)
-        return true;
-      else
-        return false;
+      if(freeze[0])
+        done=true;
     }
     else if(inPlay.size()==2) {
-      if(freeze[0]==true&&freeze[1])
-        return true;
-      else
-        return false;
+      if(freeze[0]&&freeze[1])
+        done=true;
     }
     else if(inPlay.size()==3) {
-      if(freeze[0]==true&&freeze[1]==true&&freeze[2]==true)
-        return true;
-      else
-        return false;
+      if(freeze[0]&&freeze[1]&&freeze[2])
+        done=true;
     }
-    else
-      return false;
+    return done;
   }
   public short calculateScore() {
     short p1Count=0,p2Count=0;

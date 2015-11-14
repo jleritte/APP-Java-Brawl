@@ -28,7 +28,7 @@ public class BrawlPanel  {
     frame.setLocation(360,50);
     frame.pack();
     frame.setVisible(true);
-   }
+  }
   private void addComponentsToPane() {
     size = Brawl.playArea.getSize();
     contentPane.setLayout(new BorderLayout(0,0));
@@ -246,8 +246,8 @@ public class BrawlPanel  {
     for(short i = 0;i<4;i++) {
       if(i<2) {
         String str = "";
-        if(Brawl.discard[i].getCard(1)==null)
-          play[i] = new JButton();          
+        if(Brawl.discard[i].getCard().toString().equals("??"))
+          play[i] = new JButton();
         else
           play[i] = new JButton(Brawl.icons[i].getIcon(Brawl.discard[i].getCard().toString(),1));
         play[i].setPreferredSize(new Dimension(150,209));

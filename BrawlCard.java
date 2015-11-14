@@ -1,5 +1,6 @@
 public class BrawlCard {
-  private final short BASE=0,
+  private final short BLANK=-1,
+                      BASE=0,
                       BLUEHIT=1, BLUEHIT2=2, BLUEBLOCK=3,
                       GREENHIT=4, GREENHIT2=5, GREENBLOCK=6,
                       REDHIT=7, REDHIT2=8, REDBLOCK=9,

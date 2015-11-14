@@ -1,10 +1,10 @@
 public class BrawlDeck {
-  private final short[]   bennett={7,8,0,1,3,0,1,4,0,1,6,1,3},
-              chris={4,7,0,2,5,0,2,8,0,2,2,0,3},
-              darwin={3,4,1,3,4,0,1,8,1,3,1,3,3},
-              hale={6,5,1,0,8,1,1,4,1,1,4,0,3},
-              morgan={5,8,0,4,6,0,2,2,0,1,4,0,3},
-              pearl={5,7,1,1,7,1,1,1,0,1,5,2,3};
+  private final short[] bennett={7,8,0,1,3,0,1,4,0,1,6,1,3},
+                        chris={4,7,0,2,5,0,2,8,0,2,2,0,3},
+                        darwin={3,4,1,3,4,0,1,8,1,3,1,3,3},
+                        hale={6,5,1,0,8,1,1,4,1,1,4,0,3},
+                        morgan={5,8,0,4,6,0,2,2,0,1,4,0,3},
+                        pearl={5,7,1,1,7,1,1,1,0,1,5,2,3};
 
   private BrawlCard[] deck;
   private short cardUsed;
@@ -25,67 +25,6 @@ public class BrawlDeck {
     deck=new BrawlCard[DECKSIZE];
     short cardCt=0;
     for(short type=0;type<13;type++) {
-      if(type==0)
-        for(short i=1;i<=deckBuilt[type];i++) {
-          deck[cardCt]=new BrawlCard(type,player);
-          cardCt++;
-        }
-      else if(type==1)
-        for(short i=1;i<=deckBuilt[type];i++) {
-          deck[cardCt]=new BrawlCard(type,player);
-          cardCt++;
-        }
-      else if(type==2)
-        for(short i=1;i<=deckBuilt[type];i++) {
-          deck[cardCt]=new BrawlCard(type,player);
-          cardCt++;
-        }
-      else if(type==3)
-        for(short i=1;i<=deckBuilt[type];i++) {
-          deck[cardCt]=new BrawlCard(type,player);
-          cardCt++;
-        }
-      else if(type==4)
-        for(short i=1;i<=deckBuilt[type];i++) {
-          deck[cardCt]=new BrawlCard(type,player);
-          cardCt++;
-        }
-      else if(type==5)
-        for(short i=1;i<=deckBuilt[type];i++) {
-          deck[cardCt]=new BrawlCard(type,player);
-          cardCt++;
-        }
-      else if(type==6)
-        for(short i=1;i<=deckBuilt[type];i++) {
-          deck[cardCt]=new BrawlCard(type,player);
-          cardCt++;
-        }
-      else if(type==7)
-        for(short i=1;i<=deckBuilt[type];i++) {
-          deck[cardCt]=new BrawlCard(type,player);
-          cardCt++;
-        }
-      else if(type==8)
-        for(short i=1;i<=deckBuilt[type];i++) {
-          deck[cardCt]=new BrawlCard(type,player);
-          cardCt++;
-        }
-      else if(type==9)
-        for(short i=1;i<=deckBuilt[type];i++) {
-          deck[cardCt]=new BrawlCard(type,player);
-          cardCt++;
-        }
-      else if(type==10)
-        for(short i=1;i<=deckBuilt[type];i++) {
-          deck[cardCt]=new BrawlCard(type,player);
-          cardCt++;
-        }
-      else if(type==11)
-        for(short i=1;i<=deckBuilt[type];i++) {
-          deck[cardCt]=new BrawlCard(type,player);
-          cardCt++;
-        }
-      else if(type==12)
         for(short i=1;i<=deckBuilt[type];i++) {
           deck[cardCt]=new BrawlCard(type,player);
           cardCt++;
